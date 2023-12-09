@@ -3,11 +3,11 @@ from django.http import HttpResponse
 #render
 from django.shortcuts import render
 
-def saludo(request):
-    return render(request, 'index.html')
+def contacto(request):
+    return render(request, 'contacto.html')
 
-def despedida(request):
-    return HttpResponse('buenas ncohes')
+def acerca_de(request):
+    return render(request, 'acerca_de.html')
 
-def nombre(request):
-    return HttpResponse('daniel'+'frias')
+def categorias(request):
+    return render(request, 'posts\categorias.html')
