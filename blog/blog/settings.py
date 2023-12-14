@@ -81,6 +81,21 @@ DATABASES = {
     }
 }
 
+# PARA USAR Mysql
+# DATABASES = {
+#     'mysql':{
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'nombreBD',
+#         'USER': 'root',
+#         'PASSWORD': '1234',
+#         'HOST': 'localhost',
+#         'PORT': '3604',
+#         }
+# }
+
+# COMANDOS PARA USAR MYSQL
+# pip install mysql-connector-python DUDOSO
+# pip install mysqlclient
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -104,9 +119,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
 USE_I18N = True
 
