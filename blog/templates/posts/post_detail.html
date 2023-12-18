@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{% block titulo %}
+<title>DETALLES DE POST</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<img src="{{post.imagen.url}}" alt="nota">
+<br>
+<h1> {{post.titulo}}</h1>
+<br>
+<h4>{{post.fecha_creacion}}</h4>
+{%for post in posteos%}
+<br>
+
+<h1></h1>
+
+{% endfor %}
+
+{% endblock contenido %}
