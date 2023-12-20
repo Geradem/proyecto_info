@@ -7,10 +7,12 @@
 {% endblock titulo%}
 
 {% block contenido %}
-<form method="POST">
+<div class='jumbotron'>
+    <form method="post">
     {% csrf_token %}
-    {{ form }}
-    <button type="submit">iniciar sesion</button>
-</form>
+    <br>
+    <center>{{form.as_p}}  <button type="submit" class="btn btn-success btn-lg">Iniciar Secion</button></center>
+    </form>
+  </div>
 
 {% endblock contenido %}
