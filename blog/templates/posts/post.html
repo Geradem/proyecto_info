@@ -6,8 +6,23 @@
 
 
 {% block contenido %}
-
+<!--  INICIO BOTON -->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Categorias
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'posts:post_realizado' %}">Todas</a></li>
+    {% for posteo, categoria in ctx%}
+    <li><a class="dropdown-item" href="?id={{posteo.pk}}">{{categoria.nombre}}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+<!-- FIN BOTON -->
 {%for post in posteos%}
+<br>
+
+
 
 <div class="card mb-3" style="max-width: 1080px;">
     <div class="row g-0">
