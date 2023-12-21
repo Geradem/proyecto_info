@@ -1,10 +1,12 @@
 #import get_object
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
 #importar la clase Post del Models(BD)
 from .models import Post, Categoria, Comentario
 
 from django.views.generic import DeleteView, UpdateView
 
+from .forms import Formulario_Modificacion
 
 
 # Create your views here.
@@ -51,3 +53,14 @@ def comentar_posteo(request):
     return redirect("posts:post_detail", post_id=post)
 
 
+class Borrar_Comentario(DeleteView):
+    model = Comentario
+    template_name = "comentarios/confirm_delete.html"
+    success_url = reverse_lazy("posts:post_realizado")
+
+
+class Modificar_Comentario(UpdateView):
+    model = Comentario
+    form_class = Formulario_Modificacion
+    template_name = "comentarios/modificar.html"
+    success_url = reverse_lazy("posts:post_realizado")

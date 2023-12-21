@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block titulo %}
+
+<title> ELIMINAR COMENTARIO </title>
+
+{% endblock titulo%}
+
+{% block contenido %}
+<form method="POST">
+    <p>ESTA POR ELIMINAR EL COMENTARIO, DESEA CONTINUAR?</p>
+    {% csrf_token%}
+    {{form}}
+    <button type="submit">CONFIRMAR</button>
+</form>
+
+{% endblock contenido %}
