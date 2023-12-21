@@ -13,10 +13,15 @@
   </button>
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="{% url 'posts:post_realizado' %}">Todas</a></li>
-    {% for posteo, categoria in ctx%}
-    <li><a class="dropdown-item" href="?id={{posteo.pk}}">{{categoria.nombre}}</a></li>
+    {% for categoria in categorias %}
+    <li><a class="dropdown-item" href="?id={{categoria.pk}}">{{categoria.nombre}}</a></li>
     {% endfor %}
+    
   </ul>
+  <a class="btn btn-secondary" href="?orden=asc">ASC</a>
+  <a class="btn btn-secondary" href="?orden=desc">DESC</a>
+  <a class="btn btn-secondary" href="?orden=a">A - Z</a>
+  <a class="btn btn-secondary" href="?orden=z">Z - A</a>
 </div>
 <!-- FIN BOTON -->
 {%for post in posteos%}
