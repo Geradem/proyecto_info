@@ -13,5 +13,8 @@ urlpatterns = [
     path('posteos/', views.post_realizado, name= 'post_realizado'),
 
     #post detail
-    path('post_detail/<int:post_id>', views.post_detail, name= 'post_detail')
+    path('post_detail/<int:post_id>', views.post_detail, name= 'post_detail'),
+
+    #urls comentarios
+    path("comentario", views.comentar_posteo, name='comentar'),
 ]

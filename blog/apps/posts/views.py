@@ -1,7 +1,9 @@
 #import get_object
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 #importar la clase Post del Models(BD)
-from .models import Post, Categoria
+from .models import Post, Categoria, Comentario
+
+from django.views.generic import DeleteView, UpdateView
 
 
 
@@ -32,4 +34,20 @@ def post_detail(request, post_id):
     post =get_object_or_404(Post, pk=post_id)
     ctx = {"post": post}
     return render(request, 'posts/post_detail.html', ctx )
+
+# ------------------------- COMENTARIOS------------------------------------------------
+
+def comentar_posteo(request):
+    comentario = request.POST.get("comentario", None)
+    usuario = request.user
+    post = request.POST.get("id_post", None)
+    posteo = Post.objects.get(id=post)
+    setear_comentario = Comentario.objects.create(
+        usuario = usuario, 
+        post = posteo, 
+        texto = comentario
+    )
+
+    return redirect("posts:post_detail", post_id=post)
+
 
