@@ -1,7 +1,12 @@
 asgiref==3.7.2
+<<<<<<< HEAD
 Django==5.0
 djangorestframework==3.14.0
 Pillow==10.1.0
 pytz==2023.3.post1
+=======
+Django==4.2.7
+Pillow==10.1.0
+>>>>>>> 1cccdc9f437d68aee68c1914aae3792905339b94
 sqlparse==0.4.4
 tzdata==2023.3
