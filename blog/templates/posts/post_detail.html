@@ -6,7 +6,7 @@
 
 
 {% block contenido %}
-<img src="{{post.imagen.url}}" alt="nota">
+<center><img src="{{post.imagen.url}}" alt="nota"></center>
 <br>
 <h1> {{post.titulo}}</h1>
 <br>
@@ -16,21 +16,27 @@
 {% if user.is_authenticated%}
 <form action="{% url 'posts:comentar' %}" method="POST">
     {%csrf_token%}
-    <textarea name="comentario" id="" cols="30" rows="10" required></textarea>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">QUE TE PARECIO LA NOTICIA?</label>
+        <textarea name="comentario" required class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+      </div>
     <input type="text" name="id_post" value="{{ post.id }}" hidden="">
-    <input type="submit" value="comentar">
+    <button type="submit" class="btn btn-primary btn-sm">COMENTAR</button>
 </form>
+<br>
 {% endif %}
-<div>
     {%for comentario in post.comentarios_realizados%}
-        <p>{{ comentario.fecha_comentacion }}</p>
-        <p>{{ comentario.usuario }} comentó</p>
-        <p>{{ comentario.texto }}</p>
-        {% if user.is_authenticated and user.id == comentario.usuario_id or  user.id == user.is_staff %}
-        <a href="{%url 'posts:borrar_comentario' comentario.pk %}">BORRAR</a>
-        <a href="{%url 'posts:modificar_comentario' comentario.pk %}">MODIFICAR COMENTARIO</a>
-        {% endif %}
+        <div class="comentarios-container">
+            <p class="fecha">{{ comentario.fecha_comentacion }}</p>
+            <p class="usuario">{{ comentario.usuario }} comentó:</p>
+            <p class="texto">{{ comentario.texto }}</p>
+            {% if user.is_authenticated and user.id == comentario.usuario_id or  user.id == user.is_staff %}
+            <a class="btn btn-danger btn-sm" href="{%url 'posts:borrar_comentario' comentario.pk %}">BORRAR</a>
+            <a class="btn btn-primary btn-sm" href="{%url 'posts:modificar_comentario' comentario.pk %}">MODIFICAR COMENTARIO</a>
+            {% endif %}
+        </div>
+        <br>
     {%endfor%}
-</div>
+
 
 {% endblock contenido %}

@@ -14,11 +14,11 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contacto/', views.contacto),
-    path('acerca_de/', views.acerca_de),
+    path('acerca_de/', views.acerca_de, name ='acerca_de'),
     # path('categorias/', views.categorias),
     
     #urls de la aplicacion posts
-    path('posts/', include('apps.posts.urls')),
+    path('', include('apps.posts.urls')),
     
     #urls para el login y logout
     path("login/", LoginView.as_view(template_name = 'usuarios/login.html'), name='login'),
